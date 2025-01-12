@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Soma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container principal */
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Título */
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Campo de entrada */
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Foco no campo de entrada */
+        input[type="number"]:focus {
+            border-color: #FFCC00;
+            outline: none;
+        }
+
+        /* Botão */
+        button {
+            padding: 12px 30px;
+            font-size: 1rem;
+            background-color: #FFCC00;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efeito hover no botão */
+        button:hover {
+            background-color: #FFB400;
+        }
+
+        /* Resultado */
+        p#resultado {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            input[type="number"] {
+                width: 90%;
+            }
+
+            button {
+                width: 90%;
+            }
+        }
+    </style>
+    <script>
+        // Função para calcular a soma de 1 até o número fornecido
+        function calcularSoma() {
+            // Pegando o valor do número inserido pelo usuário
+            var numero = document.getElementById("numero").value;
+            numero = parseInt(numero);
+            var soma = 0;
+
+            // Verificando se o número é válido
+            if (isNaN(numero) || numero <= 0) {
+                document.getElementById("resultado").innerHTML = "Por favor, insira um número válido maior que zero.";
+                return;
+            }
+
+            // Laço de repetição para calcular a soma de 1 até o número fornecido
+            for (var i = 1; i <= numero; i++) {
+                soma += i; // Adiciona o valor de i à soma
+            }
+
+            // Exibindo o resultado da soma
+            document.getElementById("resultado").innerHTML = "A soma dos números de 1 até " + numero + " é: " + soma;
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Container principal -->
+    <div class="container">
+        <h1>Calcular Soma</h1>
+        <p>Insira um número para calcular a soma de 1 até esse número:</p>
+        
+        <!-- Campo de entrada -->
+        <input type="number" id="numero" placeholder="Digite um número" />
+        
+        <!-- Botão para calcular -->
+        <button onclick="calcularSoma()">Calcular Soma</button>
+
+        <!-- Resultado -->
+        <p id="resultado"></p>
+    </div>
+
+</body>
+</html>
